@@ -34,6 +34,5 @@ runsvdir ~/.config/runit/runsvdir &
 blueman-tray &
 dwmblocks &
 devmon &
-songinfo &
 clipmenud &
 exec dwm
