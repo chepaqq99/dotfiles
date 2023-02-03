@@ -1,3 +1,5 @@
+beets/.config/beets/spotify_token.json
+beets/.config/beets/state.pickle
 dmenu/.config/dmenu/*
 dwm/.config/dwm/*
 gnupg/.local/share/gnupg/*
