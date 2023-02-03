@@ -1,7 +1,7 @@
 dmenu/.config/dmenu/*
 dwm/.config/dwm/*
 gnupg/.local/share/gnupg/*
-mpd/.config/mpd/
+mpd/.config/mpd/*
 mpv/.config/mpv/watch_later/*
 ncmpcpp/.config/ncmpcpp/previews/
 nvim/.config/nvim/plugin
