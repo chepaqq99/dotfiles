@@ -18,11 +18,14 @@ vifm/.config/vifm/vifminfo.json
 x11/.config/x11/Xauthority
 zsh/.config/zsh/.zcompdump
 !dmenu/.config/dmenu/*.*
+!dmenu/.config/dmenu/Makefile
 !dmenu/.config/dmenu/*/
 !dwm/.config/dwm/*.*
 !dwm/.config/dwm/*/
+!dwm/.config/dwm/Makefile
 !mpd/.config/mpd/mpd.conf
 !st/.config/st/*.*
+!st/.config/st/Makefile
 !st/.config/st/*/
 *.o
 *.orig
