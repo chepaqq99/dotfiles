@@ -1,6 +1,6 @@
 dmenu/.config/dmenu/*
 dwm/.config/dwm/*
-gnupg/*
+gnupg/.local/share/gnupg/*
 mpd/.config/mpd/
 mpv/.config/mpv/watch_later/*
 ncmpcpp/.config/ncmpcpp/previews/
