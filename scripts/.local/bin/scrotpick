@@ -1,0 +1,10 @@
+#!/bin/sh
+
+case "$(printf "a selected area\\ncurrent window\\nfull screen\\na selected area (copy)\\ncurrent window (copy)\\nfull screen (copy)" | dmenu -l 6 -f -p "Screenshot which area?")" in
+    "a selected area") scrot -f -s "$HOME/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H.%M.%S.png" ;;
+    "current window") scrot -u "$HOME/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H.%M.%S.png" ;;
+    "full screen") scrot -b -q 100 -m "$HOME/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H.%M.%S.png" ;;
+    "a selected area (copy)") scrot -f -s "$HOME/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H.%M.%S.png" -e 'copy-file $f' ;;
+    "current window (copy)") scrot -u "$HOME/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H.%M.%S.png" -e 'copy-file $f' ;;
+    "full screen (copy)") scrot -b -q 100 -m "$HOME/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H.%M.%S.png" -e 'copy-file $f' ;;
+esac

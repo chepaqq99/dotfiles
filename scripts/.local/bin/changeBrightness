@@ -1,0 +1,10 @@
+#!/bin/sh
+# changeBrightnes
+
+msgTag="myBrightness"
+
+brightnessctl set "$@" 
+
+brightness="$(brightnessctl help | sed -n '2p' | awk '{print $4}' | sed 's/[^[0-9]*//g')"
+
+dunstify -a "changeBrightness" -u low -i audio-volume-high -h string:x-dunst-stack-tag:"myBrightness" -h int:value:"$brightness" "Brightness: ${brightness}%"

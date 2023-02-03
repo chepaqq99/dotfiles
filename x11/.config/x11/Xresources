@@ -1,0 +1,46 @@
+Xft.dpi: 144
+Xcursor.theme: Adwaita
+
+st.color0: #282828
+st.color1: #cc241d
+st.color2: #98971a
+st.color3: #d79921
+st.color4: #458588
+st.color5: #b16286
+st.color6: #689d6a
+st.color7: #a89984
+st.color8: #928374
+st.color9: #fb4934
+st.color10: #b8bb26
+st.color11: #fabd2f
+st.color12: #83a598
+st.color13: #d3869b
+st.color14: #8ec07c
+st.color15: #ebdbb2
+st.background: #282828
+st.foreground: #ebdbb2
+st.cursorColor: #ebdbb2
+st.font: Terminus:pixelsize=26:antialias=false
+st.font2: DejaVuSansMono Nerd Font Mono:size=10:style=Bold
+st.alpha: 1.0
+st.alphaUnfocused: 1.0
+
+dwm.normbgcolor: #282828
+dwm.normbordercolor: #444444
+dwm.normfgcolor: #ebdbb2
+dwm.selbgcolor: #fabd2f
+dwm.selbordercolor: #928374
+dwm.selfgcolor: #282828
+dwm.borderpx: 3
+dwm.mfact: 0.55
+
+dmenu.font: Terminus:pixelsize=22:antialias=false
+dmenu.background: #282828
+dmenu.foreground: #ebdbb2
+dmenu.selbackground: #fabd2f
+dmenu.selforeground: #282828
+
+Nsxiv.window.background: #282828
+Nsxiv.window.foreground: #ebdbb2
+Nsxiv.mark.foreground: #ebdbb2
+Nsxiv.bar.font: Terminus:pixelsize=18:antialias=false

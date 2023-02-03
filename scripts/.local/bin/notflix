@@ -1,0 +1,68 @@
+#!/bin/sh
+
+cachedir=$HOME/.cache/notflix
+mkdir -p $cachedir
+
+notify() {
+    echo "notflix:" "$1"
+    notify-send "notflix." "$1"
+}
+
+die() {
+    notify "$1"
+    exit 1
+}
+
+query=$(dmenu -p "search: " <&-)
+menu="dmenu -f -l 25"
+
+[ -z "$query" ] && exit 0 # silently exit if user quits
+query="$(echo $query | sed 's/ /\%20/g')" # format query
+curl -s -o $cachedir/url.html https://thepiratebay.party/search/$query/1/99/200 # cache query from piratebay
+
+# grep titles
+grep -o '<td><a href="https.*</a>' $cachedir/url.html | sed 's/<[^>]*>//g' > $cachedir/titles.bw
+
+# check amount of magnets found
+result_count=$(wc -l $cachedir/titles.bw | awk '{print $1}')
+if [ "$result_count" -lt 1 ]; then
+    die "no result found."
+fi
+
+# get seeders and leechers for each magnet
+grep -o '<td align="right">.*</td>' $cachedir/url.html | grep -v 'nbsp;' | sed 's/<[^>]*>//g' | sed 'N;s/\n/ /' > $cachedir/seedleech.bw
+
+# get disk size of torrent
+grep '<td align="right">.*&nbsp;*' $cachedir/url.html | sed 's/<[^>]*>//g' | sed -e 's/&nbsp;//g' > $cachedir/size.bw
+
+# get magnet links
+grep -oP '<a href="magnet.*?(?=\")' $cachedir/url.html | sed 's/<a href=\"//' > $cachedir/links.bw
+
+# clear up data to display
+sed 's/\./ /g; s/\-/ /g' $cachedir/titles.bw |
+    sed 's/[^A-Za-z0-9 ]//g' | tr -s " " > $cachedir/tmp && mv $cachedir/tmp $cachedir/titles.bw
+
+awk '{print NR " - ["$0"]"}' $cachedir/size.bw | tr -d '\015' > $cachedir/tmp && mv $cachedir/tmp $cachedir/size.bw
+awk '{print "[S:"$1 ", L:"$2"]" }' $cachedir/seedleech.bw > $cachedir/tmp && mv $cachedir/tmp $cachedir/seedleech.bw
+
+# Getting the line number
+LINE=$(paste -d\   $cachedir/size.bw $cachedir/seedleech.bw $cachedir/titles.bw |
+    $menu |
+    cut -d\- -f1 |
+    awk '{$1=$1; print}')
+
+[ -z "$LINE" ] && exit 0 # silently exit if user didn't select anything
+url=$(head -n $LINE $cachedir/links.bw | tail -n +$LINE)
+
+case "$(printf "Download\nWatch" | dmenu -l 2 -f -p "Select:")" in
+    "Download")
+        nohup st -e webtorrent download -o $HOME/Movies "$url"
+        notify "notflix: movie downloaded";;
+    "Watch")
+        notify "notflix: searching subtitles " -i "NONE"
+        filename=$(head -n $LINE $cachedir/titles.bw | tail -n +$LINE )
+        subliminal --opensubtitles 'tsesh1234' 'Qwerty123!' download -d $cachedir -l ru -l en "$filename"
+        notify "notflix: launching webtorrent."
+        webtorrent --mpv "$url" -t $cachedir/"$filename".ru.srt -o $cachedir ;;
+esac
+

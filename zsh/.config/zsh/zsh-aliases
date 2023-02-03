@@ -1,0 +1,52 @@
+# Aliases
+# color when it possible
+alias ls='exa --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias diff='diff --color=auto'
+alias ip='ip -color=auto'
+# Verbosity and settings that you pretty much just always are going to want.
+alias ffmpeg='ffmpeg -hide_banner'
+alias vifm='vifmrun'
+alias sudo='doas'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -Iv'
+alias bc='bc -ql'
+alias mkd='mkdir -pv'
+alias cat='bat --pager=never --theme=gruvbox-dark'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='tree'
+alias df='df -h'
+alias free='free -h'
+# long commands
+alias vpn_up='doas protonvpn connect -f'
+alias vpn_down='doas protonvpn disconnect'
+alias gc='git clone'
+alias kl='killall'
+alias tarnow='tar cfv'
+alias untar='tar xvf'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+# void linux
+alias xi='doas xbps-install'
+alias xu='doas xbps-install -Suv'
+alias xr='doas xbps-remove -Rcon'
+alias xs='xbps-query -Rs'
+alias xl='xbps-query -l'
+alias xq='xbps-query'
+alias xclr='doas vkpurge rm all && doas rm -rf /var/cache/xbps/*'
+
+# Use neovim for vim if present.
+[ -x '$(command -v nvim)' ] && alias vim='nvim' && alias vimdiff='nvim -d'
+
+# doas not required for some system commands
+for command in mount umount xbps-install xbps-remove xbps-reconfigure sv su shutdown poweroff reboot ; do
+	alias $command="doas $command"
+done; unset command

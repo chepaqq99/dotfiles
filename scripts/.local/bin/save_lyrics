@@ -1,0 +1,15 @@
+#!/bin/sh
+cd ~/.local/share/mpd/lyrics/
+beet ls -f '$path:$artist - $title' | while read f
+do
+    name=$(echo $f | cut -d: -f 2)
+    path=$(echo $f | cut -d: -f 1)
+    echo $name
+    lyrics=$(beet lyrics -p "path:$path" 2>/dev/null)
+    lrc=$(echo "$name" | sed 's/$/.txt/g' | sed 's/\///g')
+    if test -f "$lrc"; then
+        echo "$lrc already exists"
+    else
+        test "$lyrics" && echo "-> $lrc" && echo "$lyrics" > "$lrc"
+    fi
+done

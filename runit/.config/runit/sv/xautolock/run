@@ -1,0 +1,2 @@
+#!/bin/sh
+xautolock -time 15 -locker slock -detectsleep -killtime 10 -killer zzz -resetsaver

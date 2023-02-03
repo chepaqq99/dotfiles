@@ -1,0 +1,27 @@
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
+bindkey -v '^[[P' delete-char
+bindkey -M vicmd '^[[P' vi-delete-char
+bindkey -v '^?' backward-delete-char
+
+my-backward-delete-word() {
+    local WORDCHARS=${WORDCHARS/\//}
+    zle backward-delete-word
+}
+zle -N my-backward-delete-word
+bindkey '^W' my-backward-delete-word
+
+# Edit line in vim with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+bindkey -M vicmd '^e' edit-command-line
+
+[ -f "/usr/share/fzf/key-bindings.zsh" ] && source /usr/share/fzf/key-bindings.zsh
+# FZD cd bindings
+bindkey -M vicmd '^f' fzf-cd-widget
+bindkey -M viins '^f' fzf-cd-widget
+
+bindkey -s '^o' '^uvicd\n'

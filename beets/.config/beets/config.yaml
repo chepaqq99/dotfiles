@@ -1,0 +1,66 @@
+plugins: acousticbrainz albumtypes badfiles chroma duplicates edit embedart fetchart fromfilename random replaygain ftintitle fuzzy importadded inline info lastgenre lyrics mbcollection mbsync mpdupdate missing scrub spotify smartplaylist the web zero
+asciify_path: yes
+replace:
+  # beets defaults
+  '[\\/]': _
+  '^\.': _
+  '[\x00-\x1f]': _
+  '[<>:"\?\*\|]': _
+  '\.$': _
+  '\s+$': ''
+  '^\s+': ''
+paths:
+  default: '%the{%asciify{$albumartist}}/[$year]$atypes %asciify{$album}%aunique{}/%if{$multidisc,Disc $disc/} $track %asciify{$title}'
+  singleton: 'Non-Album/%the{%asciify{$artist}}/%asciify{$title}'
+  albumtype:soundtrack: 'Soundtracks/[$year]$atypes %asciify{$album}/%if{$multidisc,Disc $disc/} $track %asciify{$title}'
+  comp: 'Compilations/[$year]$atypes %asciify{$album}%aunique{}/%if{$multidisc,Disc $disc/} $track %asciify{$title}'
+item_fields:
+  multidisc: 1 if disctotal > 1 else 0
+id3v23: yes
+per_disc_numbering: yes
+original_date: yes
+import:
+  log: /tmp/import.log
+  default_action: apply
+  bell: yes
+  write: yes
+  move: yes
+  autotag: yes
+fetchart:
+  sources: fanarttv *
+  minwidth: 1000
+  maxwidth: 3000
+  fanarttv_key: c097bb4e8949eb520ad71fb6a57f818a
+  enforce_ratio: yes
+replaygain:
+  auto: yes
+  backend: ffmpeg
+badfiles:
+  check_on_import: yes
+embedart:
+  remove_art_file: yes
+zero:
+  fields: month day comments
+  update_database: true
+missing:
+  format: $albumartist - $album - $missing
+  count: yes
+acoustid:
+  apikey: baRflu60kb
+musicbrainz:
+  user: chepaqq99
+  pass: '`@MaG88P,T2#y|T!7ENRXlz^o'
+mbcollection:
+  auto: yes
+  remove: yes
+smartplaylist:
+  relative_to: ~/Music
+  playlist_dir: ~/.local/share/mpd/playlists
+  forward_slash: no
+  playlists:
+    - name: all.m3u
+      query: ''
+    - name: beatles.m3u
+      query: 'artist:Beatles'
+lyrics:
+  sources: tekstowo genius
