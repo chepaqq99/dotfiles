@@ -26,19 +26,19 @@ st.alpha: 1.0
 st.alphaUnfocused: 1.0
 
 dwm.normbgcolor: #282828
-dwm.normbordercolor: #444444
+dwm.normbordercolor: #3c3836
 dwm.normfgcolor: #ebdbb2
-dwm.selbgcolor: #fabd2f
-dwm.selbordercolor: #928374
-dwm.selfgcolor: #282828
+dwm.selfgcolor: #fdf1c7
+dwm.selbgcolor: #d79921
+dwm.selbordercolor: #d79921
 dwm.borderpx: 3
 dwm.mfact: 0.55
 
 dmenu.font: Terminus:pixelsize=22:antialias=false
 dmenu.background: #282828
-dmenu.foreground: #ebdbb2
-dmenu.selbackground: #fabd2f
-dmenu.selforeground: #282828
+dmenu.foreground: #ebddb2
+dmenu.selbackground: #d79921
+dmenu.selforeground: #fdf1c7
 
 Nsxiv.window.background: #282828
 Nsxiv.window.foreground: #ebdbb2

@@ -32,7 +32,7 @@ fi
 xwallpaper --daemon --zoom "$HOME/.local/share/wallpapers/wall_secondary.png" &
 runsvdir ~/.config/runit/runsvdir &
 blueman-tray &
-dwmblocks &
 devmon &
 clipmenud &
+dwmblocks &
 exec dwm
