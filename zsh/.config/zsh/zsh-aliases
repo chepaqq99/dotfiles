@@ -25,6 +25,7 @@ alias lt='tree'
 alias df='df -h'
 alias free='free -h'
 # long commands
+alias s='dwmswallow $WINDOWID;'
 alias vpn_up='doas protonvpn connect -f'
 alias vpn_down='doas protonvpn disconnect'
 alias gc='git clone'

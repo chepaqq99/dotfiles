@@ -213,7 +213,7 @@ command! tar if [ -n "%a" ]; then
 " File types association
 
 " Pdf, DjVu, PostScript & Epub
-filextype *.pdf,*.ps,*.eps,*.ps.gz,*.djvu,*.epub zathura %f %i &
+filetype *.pdf,*.ps,*.eps,*.ps.gz,*.djvu,*.epub dwmswallow $WINDOWID; zathura %f %i &
 fileviewer *.pdf
         \ vifmimg pdf %px %py %pw %ph %c
         \ %pc
@@ -261,7 +261,7 @@ fileviewer *.msi
 " Audio
 filetype {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus},
         \<audio/*>
-		\ mpv %c %s,
+		\ dwmswallow $WINDOWID; mpv %c %s,
 fileviewer *.wav,*.mp3,*.flac,*.spx,*.ogg,*.oga,*.ogx,*.ac3,*.m4a,*.wma,*.aac,*.ape,*.3gp,*.opus,*.wv
 		\ mediainfo
 
@@ -270,7 +270,7 @@ filextype {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
           \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
           \*.as[fx]},
          \<video/*>
-        \ mpv %c %s,
+        \ dwmswallow $WINDOWID; mpv %c %s,
 fileviewer {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
            \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
            \*.as[fx]},
@@ -282,7 +282,7 @@ fileviewer {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
 " Web
 filextype {*.xhtml,*.html,*.htm},<text/html>
         \ {Open with librewolf}
-        \ librewolf %f &,
+        \ dwmswallow $WINDOWID; librewolf %f &,
 fileview {*.xhtml,*.html,*.htm},<text/html> lynx -dump
 
 " Json
@@ -297,10 +297,10 @@ filetype {*.[1-8]},<text/troff> man ./%c
 fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 
 " Images
-filextype *.gif nsxiv -a %f
+filextype *.gif dwmswallow $WINDOWID; nsxiv -a %f
 filextype {*.bmp,*.jpg,*.jpeg,*.png,*.xpm},<image/*>
         \ {View in sxiv}
-        \ nsxiv-rifle %f,
+        \ dwmswallow $WINDOWID; nsxiv-rifle %f,
 fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
         \ vifmimg draw %px %py %pw %ph %c
         \ %pc
@@ -390,7 +390,7 @@ filextype {*.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ppt},
          \<application/vnd.openxmlformats-officedocument.*,
           \application/msword,
           \application/vnd.ms-excel>
-        \ libreoffice %f &
+        \ dwmswallow $WINDOWID; libreoffice %f &
 fileviewer {*.doc},<application/msword> catdoc %c
 fileviewer *.odt,*.odp odt2txt %f
 fileviewer *.xlsx xlsx2csv %f

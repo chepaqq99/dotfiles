@@ -41,6 +41,6 @@ volume() {
 }
 
 while true; do
-	xsetroot -name "$(wlan) || $(volume) || $(battery) || $(memory) || $(datetime)"
+	xsetroot -name "$(wlan) | $(volume) | $(battery) | $(memory) | $(datetime)"
 	sleep 1    # Update time every second
 done &
