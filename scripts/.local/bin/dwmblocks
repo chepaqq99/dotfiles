@@ -2,45 +2,45 @@
 
 datetime() {
 	time=$(date "+%a %T")
-	printf %s "[$time]"
+	printf %s "$time"
 }
 
 wlan() {
 	ssid=$(iwctl station wlp1s0 show | grep 'Connected network' | awk  '{print $3}')
 	case "$(cat /sys/class/net/wlp1s0/operstate)" in
-		up) printf %s "[直 $ssid]" ;;
-		down) printf %s "[ Disconnected]" ;;
+		up) printf %s "直 $ssid" ;;
+		down) printf %s " Disconnected" ;;
 	esac
 }
 
 battery() {
-	case "$(cat /sys/class/power_supply/BAT1/status)" in
+    case "$(cat /sys/class/power_supply/BAT1/status)" in
 		Charging) icon=;;
 		Discharging) icon=;;
 		Full) icon=;;
 	esac
 	capacity=$(cat /sys/class/power_supply/BAT1/capacity)%
-	printf %s "[$icon $capacity]"
+	printf %s "$icon $capacity"
 }
 
 memory() {
 	memory=$(free -h --si | awk '/^Mem:/ {print $3}')B
-    printf %s "[RAM: $memory]"
+    printf %s "RAM $memory"
 }
 volume() {
 	getvolume=$(amixer get Master | tail -1 | awk '{print $5}' | sed 's/[^0-9]*//g')
 	mute=$(amixer get Master | tail -1 | awk '{print $6}' | sed 's/[^a-z]*//g')
 	if [ "$getvolume" != "" ]; then
 		if [ "$getvolume" = 0 ] || [ "$mute" = "off" ]; then
-			printf %s "[  Muted]"
+			printf %s "  Muted"
 		else
-			printf %s "[  $getvolume%]"
+			printf %s "  $getvolume%"
 		fi
 	fi
 
 }
 
 while true; do
-	xsetroot -name "$(wlan) $(volume) $(battery) $(memory) $(datetime)"
+	xsetroot -name "$(wlan) || $(volume) || $(battery) || $(memory) || $(datetime)"
 	sleep 1    # Update time every second
 done &
