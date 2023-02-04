@@ -25,3 +25,10 @@ bindkey -M vicmd '^f' fzf-cd-widget
 bindkey -M viins '^f' fzf-cd-widget
 
 bindkey -s '^o' '^uvicd\n'
+
+bindkey '^X^m' accept-line-swallow
+zle -N accept-line-swallow acceptandswallow
+acceptandswallow() {
+    dwmswallow $WINDOWID
+    zle accept-line
+}
