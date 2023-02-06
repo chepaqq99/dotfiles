@@ -390,7 +390,7 @@ filextype {*.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ppt},
          \<application/vnd.openxmlformats-officedocument.*,
           \application/msword,
           \application/vnd.ms-excel>
-        \ dwmswallow $WINDOWID; libreoffice %f &
+        \ libreoffice %f &
 fileviewer {*.doc},<application/msword> catdoc %c
 fileviewer *.odt,*.odp odt2txt %f
 fileviewer *.xlsx xlsx2csv %f
