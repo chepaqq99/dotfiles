@@ -2,6 +2,8 @@ beets/.config/beets/spotify_token.json
 beets/.config/beets/state.pickle
 dmenu/.config/dmenu/*
 dwm/.config/dwm/*
+emacs/.config/emacs/*
+!emacs/.config/emacs/init.el
 gnupg/.local/share/gnupg/*
 !gnupg/.local/share/gnupg/gpg-agent.conf
 !gnupg/.local/share/gnupg/pinentry-dmenu.conf

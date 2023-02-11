@@ -1,2 +1,2 @@
 #!/bin/sh
-exec emacs --fg-daemon
+exec emacs --daemon
