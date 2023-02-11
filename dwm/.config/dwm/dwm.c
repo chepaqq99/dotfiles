@@ -38,7 +38,7 @@
 #include <X11/Xutil.h>
 #include <X11/Xresource.h>
 #ifdef XINERAMA
-#include <X11/extensions/Xinerama.h>
+#Include <X11/extensions/Xinerama.h>
 #endif /* XINERAMA */
 #include <X11/Xft/Xft.h>
 
@@ -58,7 +58,7 @@
 #define TAGMASK                 ((1 << LENGTH(tags)) - 1)
 #define TEXTW(X)                (drw_fontset_getwidth(drw, (X)) + lrpad)
 
-/* enums */
+/* Enumst */
 enum { CurNormal, CurResize, CurMove, CurSwal, CurLast }; /* cursor */
 enum { SchemeNorm, SchemeSel }; /* color schemes */
 enum { NetSupported, NetWMName, NetWMState, NetWMCheck,
