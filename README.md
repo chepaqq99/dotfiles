@@ -9,7 +9,6 @@ This repo contains dotfiles for software that I use everyday.
 - mpd and ncmpcpp - music player
 - mpv - video player
 - neovim - text editor
-- newsboat - RSS reader
 - nsxiv - image viewer
 - pinentry-dmenu - pinentry program
 - st - suckless terminal emulator
