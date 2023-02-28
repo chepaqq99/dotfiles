@@ -38,7 +38,7 @@
 #include <X11/Xutil.h>
 #include <X11/Xresource.h>
 #ifdef XINERAMA
-#Include <X11/extensions/Xinerama.h>
+#include <X11/extensions/Xinerama.h>
 #endif /* XINERAMA */
 #include <X11/Xft/Xft.h>
 
