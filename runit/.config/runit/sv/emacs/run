@@ -1,2 +1,3 @@
 #!/bin/sh
-exec emacs --daemon
+cd $HOME
+exec emacs --fg-daemon
