@@ -14,8 +14,8 @@ unsetopt BEEP
 #disable ctrl+s and ctrl+q
 stty -ixon
 
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=1000000
+SAVEHIST=1000000
 HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share/}/zsh/history"
 
 # Basic auto/tab complete:

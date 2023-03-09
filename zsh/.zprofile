@@ -1,6 +1,7 @@
 # PATH
-export PATH=$PATH:$HOME/.local/bin/
-
+PATH=$PATH:$HOME/.local/bin/:$HOME/.local/share/nvim/mason/bin/
+PATH=$PATH:$GOPATH/bin/
+export PATH
 # Default programs
 export WM="dwm"
 export READER="zathura"
@@ -12,7 +13,7 @@ export BROWSER="librewolf"
 
 # Clean home directory
 export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
-export GOPATH="$XDG_DATA_HOME/go"
+export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc-2.0"
 export LESSHISTFILE="-"
 export LESSHISTSIZE=0
@@ -32,6 +33,8 @@ export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
 export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.
 export MPV_OPTS="--really-quiet"
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
+export RUSTUP_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/rustup"
 export GREP_COLORS='mt=1;92;40'
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
 export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink
@@ -60,3 +63,4 @@ export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap 
 
 # Start server on tty1
 [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && startx $XINITRC -- -keeptty vt1 &> /dev/null
+

@@ -3,7 +3,6 @@
       fill-column 80
       history-length 25 ; Minibuffer history length
       global-auto-revert-non-file-buffers t ; Revert other buffers
-      require-final-newline t ; Enter new line in end of file
       make-backup-files nil  ; Don't want any backup
       auto-save-list-file-name nil; Don't want any .saves
       auto-save-default nil) ; Don't want any ato saving files

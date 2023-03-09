@@ -61,6 +61,14 @@ autocmd('Filetype', {
   command = 'setlocal shiftwidth=2 tabstop=2'
 })
 
+augroup('GoFormat', { clear = true })
+autocmd('BufWritePre', {
+  group = 'GoFormat',
+  pattern = '*.go',
+  callback = function()
+    require('go.format').goimport()
+  end,
+})
 -- Terminal settings:
 ---------------------
 

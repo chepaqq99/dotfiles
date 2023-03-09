@@ -19,6 +19,8 @@ opt.completeopt = 'menuone,noinsert,noselect'  -- Autocomplete options
 opt.keymap = "russian-jcukenwin"
 opt.iminsert = 0
 opt.imsearch = 0
+opt.autochdir = true
+opt.autowrite = true
 
 -----------------------------------------------------------
 -- Neovim UI

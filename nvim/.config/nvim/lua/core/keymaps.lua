@@ -58,12 +58,12 @@ map('n', '<leader>r', ':so %<CR>')
 map('n', '<leader>s', ':w<CR>')
 
 -- Close current buffer
-map('n', '<leader>c', '<Cmd>bd!<Cr>')
+map('n', '<leader>d', '<Cmd>bd!<Cr>')
 map('n', '<leader>D', '<Cmd>%bd|e#|bd#<Cr>')
 
 -- Switch buffer
-map("n", "<S-h>", ":bprevious<CR>")
-map("n", "<S-l>", ":bnext<CR>")
+map("n", "[b", ":bprevious<CR>")
+map("n", "]b", ":bnext<CR>")
 
 -- Close all windows and exit from Neovim with <leader> and q
 map('n', '<leader>q', ':qa!<CR>')
@@ -99,8 +99,28 @@ map('n', '<leader>n', ':NvimTreeFindFile<CR>')      -- search file
 map('n', '<leader>z', ':Vista!!<CR>')               -- open/close
 
 -- Lazy git
-map('n', '<leader>gg', ':LazyGit<CR>')
+map('n', '<leader>gg', ':Neogit<CR>')
 
 -- Telescope
 map('n', '<leader>f', '<cmd>Telescope find_files<CR>')
 map('n', '<leader>gr', '<cmd>Telescope live_grep<CR>')
+
+-- Trouble
+vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
+  {silent = true, noremap = true}
+)

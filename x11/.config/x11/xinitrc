@@ -31,6 +31,7 @@ fi
 
 xwallpaper --daemon --zoom "$HOME/.local/share/wallpapers/wall_secondary.png" &
 runsvdir ~/.config/runit/runsvdir &
+setxkbmap -option grp:alt_space_toggle -option caps:ctrl_modifier -option shift:both_capslock -layout us,ru
 blueman-applet &
 devmon &
 clipmenud &
