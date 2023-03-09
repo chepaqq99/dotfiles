@@ -119,7 +119,6 @@ return packer.startup(function(use)
       'hrsh7th/cmp-calc',
       'hrsh7th/cmp-nvim-lua',
       'saadparwaiz1/cmp_luasnip',
-      'kdheepak/cmp-latex-symbols',
       'rafamadriz/friendly-snippets',
       'onsails/lspkind.nvim',
     },
