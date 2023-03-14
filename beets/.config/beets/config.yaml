@@ -1,4 +1,7 @@
-plugins: acousticbrainz albumtypes badfiles chroma duplicates edit embedart fetchart fromfilename random replaygain ftintitle fuzzy importadded inline info lastgenre lyrics mbcollection mbsync mpdupdate missing scrub spotify smartplaylist the web zero
+plugins: acousticbrainz albumtypes badfiles chroma duplicates edit embedart fetchart
+  fromfilename random replaygain ftintitle fuzzy importadded inline info lastgenre
+  lyrics mbcollection mbsync mpdupdate missing scrub spotify smartplaylist the web
+  zero
 asciify_path: yes
 replace:
   # beets defaults
@@ -10,10 +13,13 @@ replace:
   '\s+$': ''
   '^\s+': ''
 paths:
-  default: '%the{%asciify{$albumartist}}/[$year]$atypes %asciify{$album}%aunique{}/%if{$multidisc,Disc $disc/} $track %asciify{$title}'
+  default: '%the{%asciify{$albumartist}}/[$year]$atypes %asciify{$album}%aunique{}/%if{$multidisc,Disc
+    $disc/} $track %asciify{$title}'
   singleton: 'Non-Album/%the{%asciify{$artist}}/%asciify{$title}'
-  albumtype:soundtrack: 'Soundtracks/[$year]$atypes %asciify{$album}/%if{$multidisc,Disc $disc/} $track %asciify{$title}'
-  comp: 'Compilations/[$year]$atypes %asciify{$album}%aunique{}/%if{$multidisc,Disc $disc/} $track %asciify{$title}'
+  albumtype:soundtrack: 'Soundtracks/[$year]$atypes %asciify{$album}/%if{$multidisc,Disc
+    $disc/} $track %asciify{$title}'
+  comp: 'Compilations/[$year]$atypes %asciify{$album}%aunique{}/%if{$multidisc,Disc
+    $disc/} $track %asciify{$title}'
 item_fields:
   multidisc: 1 if disctotal > 1 else 0
 id3v23: yes

@@ -1,5 +1,6 @@
 # PATH
 PATH=$PATH:$HOME/.local/bin/:$HOME/.local/share/nvim/mason/bin/
+export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 PATH=$PATH:$GOPATH/bin/
 export PATH
 # Default programs
@@ -13,7 +14,6 @@ export BROWSER="librewolf"
 
 # Clean home directory
 export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
-export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc-2.0"
 export LESSHISTFILE="-"
 export LESSHISTSIZE=0
